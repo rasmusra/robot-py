@@ -1,6 +1,6 @@
-# Robot HiQ
+# Robot Py
 
-A brief description of the program.
+This code implements the robot exercise in python
 
 ## Table of Contents
 
