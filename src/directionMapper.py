@@ -5,6 +5,7 @@ cardinalToDegreesMap = {
     'WEST': 270
 }
 
+
 def degreesToCardinalMap(direction):
     for cardinal, degrees in cardinalToDegreesMap.items():
         if degrees == direction:

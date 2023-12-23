@@ -1,18 +1,21 @@
 from src.directionMapper import degreesToCardinalMap
 
 
+
 fgColor = {
     'green': '\x1b[32m',
     'white': '\x1b[0m',
     'red': '\x1b[31m'
 }
 
+
 direction_graphics = {
     0: '⇑',
     90: '⇒',
     180: '⇓',
-    270: '⇐' 
+    270: '⇐'
 }
+
 
 def reportWithGraphics(tabletop, robotState):
     verticalBorder = '-' * (tabletop.width+2)
@@ -29,6 +32,7 @@ def reportWithGraphics(tabletop, robotState):
     print(cellsBeforeRobot + robot + cellsAfterRobot)
     [print(emptyCells) for line in range(robotState.y_position)]
     print(verticalBorder + fgColor['white'])
+
 
 def reportData(robot):
     print(f'Robot is at position ({robot.x_position}, {robot.y_position})\
