@@ -1,6 +1,5 @@
 
 from src.directionMapper import degreesToCardinalMap
-# from simple_colors import green, red
 
 fgColor = {
     'green': '\x1b[32m',
