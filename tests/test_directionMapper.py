@@ -1,4 +1,4 @@
-from src.directionMapper import *
+from src.directionMapper import cardinalToDegreesMap, degreesToCardinalMap
 
 def test_cardinalToDegreesMap():
     actual = cardinalToDegreesMap["SOUTH"]

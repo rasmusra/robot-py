@@ -1,8 +1,8 @@
-from src.robot import Robot
+from src.robot_state import RobotState
 from src.directionMapper import cardinalToDegreesMap
 
 def tryCreate(instruction, tabletop):
-    robot = None
+    robotState = None
 
     try:
         dataPart = instruction.split('PLACE ')[1]
@@ -10,9 +10,9 @@ def tryCreate(instruction, tabletop):
         direction = cardinalToDegreesMap[cardinalDirection]
 
         if tabletop.onBoard(int(x_position), int(y_position)):
-            robot = Robot(int(x_position), int(y_position), direction)
+            robotState = RobotState(int(x_position), int(y_position), direction)
 
     except:
         pass
 
-    return robot
+    return robotState
