@@ -6,6 +6,6 @@ cardinalToDegreesMap = {
 }
 
 def degreesToCardinalMap(direction):
-    for facing, d in cardinalToDegreesMap.items():
-        if d == direction:
-            return facing
+    for cardinal, degrees in cardinalToDegreesMap.items():
+        if degrees == direction:
+            return cardinal
