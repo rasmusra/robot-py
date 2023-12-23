@@ -1,10 +1,8 @@
 from src.robot_state import RobotState
-from src.robot_state import RobotState
 from src.directionMapper import cardinalToDegreesMap
 
 
 def tryCreate(instruction, tabletop):
-    robotState = None
     robotState = None
 
     try:

@@ -1,7 +1,6 @@
 from src.directionMapper import degreesToCardinalMap
 
 
-
 fgColor = {
     'green': '\x1b[32m',
     'white': '\x1b[0m',
@@ -37,6 +36,3 @@ def reportWithGraphics(tabletop, robotState):
 def reportData(robot):
     print(f'Robot is at position ({robot.x_position}, {robot.y_position})\
  facing {degreesToCardinalMap(robot.direction)}')
-
-def icon(robotState):
-    return 

@@ -1,6 +1,5 @@
 from src.tabletop import Tabletop
 from src.robot_state import RobotState
-from src.robot_state import RobotState
 from src.reporter import reportWithGraphics, reportData
 
 
@@ -15,7 +14,6 @@ def test_report_data(capsys):
 
 def test_report_with_graphics(capsys):
     tabletop = Tabletop(1, 1)
-    robotState = RobotState(0, 0, 0)
     robotState = RobotState(0, 0, 0)
     green = '\x1b[32m'
     white = '\x1b[0m'
