@@ -1,3 +1,5 @@
+import math
+
 class RobotState:
     def __init__(self, x_position, y_position, direction):
         self.x_position = int(x_position)
@@ -16,21 +18,10 @@ def turnRight(robotState):
 
 
 def move(robotState, tabletop):
-    if robotState.direction == 0:
-        return RobotState(robotState.x_position,
-                          min(tabletop.height-1, robotState.y_position + 1),
-                          robotState.direction)
-    elif robotState.direction == 90:
-        return RobotState(min(tabletop.width-1, robotState.x_position + 1),
-                          robotState.y_position,
-                          robotState.direction)
-    elif robotState.direction == 180:
-        return RobotState(robotState.x_position,
-                          max(0, robotState.y_position - 1),
-                          robotState.direction)
-    elif robotState.direction == 270:
-        return RobotState(max(0, robotState.x_position - 1),
-                          robotState.y_position,
-                          robotState.direction)
-    else:
-        raise Exception("Invalid robot: " + robotState.direction)
+    x_delta = round(math.sin(math.radians(robotState.direction)))
+    y_delta = round(math.cos(math.radians(robotState.direction)))
+
+    x_position = max(0, min(tabletop.width-1, robotState.x_position + x_delta))
+    y_position = max(0, min(tabletop.width-1, robotState.y_position + y_delta))
+
+    return RobotState(x_position, y_position, robotState.direction)
