@@ -16,15 +16,15 @@ directionIcon = {
 }
 
 
-def reportWithGraphics(tabletop, robotState):
-    verticalBorder = '-' * (tabletop.width+2)
-    emptyCells = '|' + ' ' * tabletop.width + '|'
+def reportWithGraphics(surface, robotState):
+    verticalBorder = '-' * (surface.width+2)
+    emptyCells = '|' + ' ' * surface.width + '|'
     cellsBeforeRobot = '|' + ' ' * robotState.x_position
     robotIcon = directionIcon[robotState.direction]
     robot = fgColor['red'] + robotIcon + fgColor['green']
-    numberOfCellsAfterRobot = tabletop.width - robotState.x_position - 1
+    numberOfCellsAfterRobot = surface.width - robotState.x_position - 1
     cellsAfterRobot = ' ' * numberOfCellsAfterRobot + '|'
-    numberOfLinesAboveRobot = tabletop.height-1 - robotState.y_position
+    numberOfLinesAboveRobot = surface.height-1 - robotState.y_position
 
     print(fgColor['green'] + verticalBorder)
     [print(emptyCells) for line in range(numberOfLinesAboveRobot)]

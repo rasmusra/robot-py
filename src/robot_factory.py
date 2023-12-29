@@ -2,7 +2,7 @@ from src.robot_state import RobotState
 from src.directionMapper import cardinalToDegreesMap
 
 
-def create(instruction, tabletop):
+def create(instruction, surface):
     robotState = None
 
     try:
@@ -10,7 +10,7 @@ def create(instruction, tabletop):
         x_position, y_position, cardinalDirection = dataPart.split(',')
         direction = cardinalToDegreesMap[cardinalDirection]
 
-        if tabletop.onBoard(int(x_position), int(y_position)):
+        if surface.onBoard(int(x_position), int(y_position)):
             robotState = RobotState(int(x_position), int(y_position),
                                     direction)
 

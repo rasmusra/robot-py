@@ -1,6 +1,6 @@
 import pytest
 from src.robot_factory import create
-from src.tabletop import Tabletop
+from src.surface import Surface
 
 
 @pytest.mark.parametrize('givenInstruction, expectedDirection',
@@ -9,7 +9,7 @@ from src.tabletop import Tabletop
                           ('PLACE 1,2,SOUTH', 180),
                           ('PLACE 1,2,WEST', 270)])
 def test_createRobot(givenInstruction, expectedDirection):
-    robotState = create(givenInstruction, Tabletop(2, 3))
+    robotState = create(givenInstruction, Surface(2, 3))
     assert robotState.x_position == 1
     assert robotState.y_position == 2
     assert robotState.direction == expectedDirection
@@ -21,5 +21,5 @@ def test_createRobot(givenInstruction, expectedDirection):
                           ('PLACE 1,2,SOTH'),
                           ('PLAC 1,2,WEST')])
 def test_failCreatingRobot(givenFaultyInstruction):
-    robotState = create(givenFaultyInstruction, Tabletop(2, 3))
+    robotState = create(givenFaultyInstruction, Surface(2, 3))
     assert robotState is None

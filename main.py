@@ -1,24 +1,24 @@
 import re
 from src.reporter import reportWithGraphics
-from src.tabletop import Tabletop
+from src.surface import Surface
 from src.robot_factory import create
 from src.robot_state import turnLeft, turnRight, move
 
-tabletop = Tabletop(5, 5)
+surface = Surface(5, 5)
 robotState = None
 
 while robotState is None:
     userInput = input()
-    robotState = create(userInput, tabletop)
+    robotState = create(userInput, surface)
 
 while True:
     userInput = input()
 
     if userInput == 'REPORT':
-        reportWithGraphics(tabletop, robotState)
+        reportWithGraphics(surface, robotState)
         continue
     elif re.match('^PLACE', userInput):
-        newRobotState = create(userInput, tabletop)
+        newRobotState = create(userInput, surface)
         robotState = newRobotState if newRobotState is not None else robotState
         continue
     elif userInput == 'LEFT':
@@ -28,5 +28,5 @@ while True:
         robotState = turnRight(robotState)
         pass
     elif userInput == 'MOVE':
-        robotState = move(robotState, tabletop)
+        robotState = move(robotState, surface)
         pass

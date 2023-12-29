@@ -1,5 +1,5 @@
 from src.robot_state import RobotState, turnLeft, turnRight, move
-from src.tabletop import Tabletop
+from src.surface import Surface
 
 
 def test_createRobot():
@@ -35,67 +35,67 @@ def test_turnRight():
 
 def test_move():
     robotState = RobotState(1, 2, 0)
-    tabletop = Tabletop(5, 5)
-    robotState = move(robotState, tabletop)
+    surface = Surface(5, 5)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 1
     assert robotState.y_position == 3
     robotState = turnRight(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 2
     assert robotState.y_position == 3
     robotState = turnRight(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 2
     assert robotState.y_position == 2
     robotState = turnRight(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 1
     assert robotState.y_position == 2
     robotState = turnRight(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 1
     assert robotState.y_position == 3
     robotState = turnLeft(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 3
     robotState = turnLeft(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 2
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 1
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 0
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 0
     robotState = turnRight(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 0
     robotState = turnLeft(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 0
     assert robotState.y_position == 0
     robotState = turnLeft(robotState)
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 1
     assert robotState.y_position == 0
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 2
     assert robotState.y_position == 0
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 3
     assert robotState.y_position == 0
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 4
     assert robotState.y_position == 0
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 4
     assert robotState.y_position == 0
-    robotState = move(robotState, tabletop)
+    robotState = move(robotState, surface)
     assert robotState.x_position == 4
     assert robotState.y_position == 0
