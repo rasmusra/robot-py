@@ -10,7 +10,7 @@ This code implements the robot exercise in python
 ## Installation
 
 ### Prerequisites
-Python 3.10 or later should be enough
+Python 3.10 or later
 
 ### Test
 ```
