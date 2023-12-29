@@ -5,6 +5,10 @@ surface = Surface(5, 5)
 robotState = None
 
 while True:
-    userInput = input()
-    command = parseCommand(userInput, surface)
-    robotState = command(robotState)
+    try:
+        userInput = input()
+        command = parseCommand(userInput, surface)
+        robotState = command(robotState)
+    except KeyboardInterrupt:
+        print('\n')
+        exit()
