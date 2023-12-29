@@ -1,7 +1,7 @@
 import re
 from src.robot_state import turnLeft, turnRight, move, place
 from src.reporter import reportWithGraphics
-from src.directionMapper import cardinalToDegreesMap
+from src.direction_mapper import cardinalToDegreesMap
 
 
 def _create(instruction, surface):

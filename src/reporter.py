@@ -1,4 +1,4 @@
-from src.directionMapper import degreesToCardinalMap
+from src.direction_mapper import degreesToCardinalMap
 
 
 fgColor = {
