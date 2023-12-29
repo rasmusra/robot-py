@@ -8,7 +8,7 @@ fgColor = {
 }
 
 
-direction_graphics = {
+directionIcon = {
     0: '⇑',
     90: '⇒',
     180: '⇓',
@@ -20,7 +20,7 @@ def reportWithGraphics(tabletop, robotState):
     verticalBorder = '-' * (tabletop.width+2)
     emptyCells = '|' + ' ' * tabletop.width + '|'
     cellsBeforeRobot = '|' + ' ' * robotState.x_position
-    robotIcon = direction_graphics[robotState.direction]
+    robotIcon = directionIcon[robotState.direction]
     robot = fgColor['red'] + robotIcon + fgColor['green']
     numberOfCellsAfterRobot = tabletop.width - robotState.x_position - 1
     cellsAfterRobot = ' ' * numberOfCellsAfterRobot + '|'
