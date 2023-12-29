@@ -1,7 +1,7 @@
 import re
 from src.reporter import reportWithGraphics
 from src.surface import Surface
-from src.robot_factory import create
+from src.robot_state_factory import create
 from src.robot_state import turnLeft, turnRight, move
 
 surface = Surface(5, 5)
