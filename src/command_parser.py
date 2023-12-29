@@ -11,7 +11,7 @@ def _parsePlaceCommand(instruction, surface):
         dataPart = instruction.split('PLACE ')[1]
         x_position, y_position, cardinalDirection = dataPart.split(',')
         direction = cardinalToDegreesMap[cardinalDirection]
-        robotState = place(int(x_position), int(y_position), direction, 
+        robotState = place(int(x_position), int(y_position), direction,
                            surface)
 
     except Exception:
@@ -25,7 +25,7 @@ def parseCommand(userInput, surface):
         return lambda robotState: reportWithGraphics(surface, robotState)
     elif re.match('^PLACE', userInput):
         newRobotState = _parsePlaceCommand(userInput, surface)
-        return lambda robotState: robotState if newRobotState is None else newRobotState 
+        return lambda robotState: robotState if newRobotState is None else newRobotState
     elif userInput == 'LEFT':
         return lambda robotState: turnLeft(robotState)
     elif userInput == 'RIGHT':

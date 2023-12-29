@@ -19,7 +19,6 @@ directionIcon = {
 def reportWithGraphics(surface, robotState):
     if robotState is None:
         return None
-    
 
     verticalBorder = '-' * (surface.width+2)
     emptyCells = '|' + ' ' * surface.width + '|'
@@ -42,8 +41,8 @@ def reportWithGraphics(surface, robotState):
 def reportData(robotState):
     if robotState is None:
         return None
-    
+
     print(f'Robot is at position ({robotState.x_position}, {robotState.y_position})\
  facing {degreesToCardinalMap(robotState.direction)}')
-    
+
     return robotState

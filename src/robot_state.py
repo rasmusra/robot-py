@@ -1,5 +1,6 @@
 import math
 
+
 class RobotState:
     def __init__(self, x_position, y_position, direction):
         self.x_position = int(x_position)
@@ -17,7 +18,7 @@ def place(x_position, y_position, direction, surface):
 def turnLeft(robotState):
     if robotState is None:
         return None
-    
+
     return RobotState(robotState.x_position, robotState.y_position,
                       (robotState.direction - 90) % 360)
 
@@ -25,7 +26,7 @@ def turnLeft(robotState):
 def turnRight(robotState):
     if robotState is None:
         return None
-    
+
     return RobotState(robotState.x_position, robotState.y_position,
                       (robotState.direction + 90) % 360)
 
@@ -33,7 +34,7 @@ def turnRight(robotState):
 def move(robotState, surface):
     if robotState is None:
         return None
-    
+
     x_delta = round(math.sin(math.radians(robotState.direction)))
     y_delta = round(math.cos(math.radians(robotState.direction)))
 

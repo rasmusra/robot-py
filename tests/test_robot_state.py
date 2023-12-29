@@ -3,14 +3,14 @@ from src.surface import Surface
 
 
 def test_place():
-    surface = Surface(3,3)
-    robotState = place(1,2,90,surface)
+    surface = Surface(3, 3)
+    robotState = place(1, 2, 90, surface)
     assert robotState is not None
 
 
 def test_failPace():
-    surface = Surface(3,3)
-    robotState = place(1,3,90,surface)
+    surface = Surface(3, 3)
+    robotState = place(1, 3, 90, surface)
     assert robotState is None
 
 
