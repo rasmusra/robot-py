@@ -17,6 +17,10 @@ directionIcon = {
 
 
 def reportWithGraphics(surface, robotState):
+    if robotState is None:
+        return None
+    
+
     verticalBorder = '-' * (surface.width+2)
     emptyCells = '|' + ' ' * surface.width + '|'
     cellsBeforeRobot = '|' + ' ' * robotState.x_position
@@ -27,12 +31,19 @@ def reportWithGraphics(surface, robotState):
     numberOfLinesAboveRobot = surface.height-1 - robotState.y_position
 
     print(fgColor['green'] + verticalBorder)
-    [print(emptyCells) for line in range(numberOfLinesAboveRobot)]
+    [print(emptyCells) for _ in range(numberOfLinesAboveRobot)]
     print(cellsBeforeRobot + robot + cellsAfterRobot)
-    [print(emptyCells) for line in range(robotState.y_position)]
+    [print(emptyCells) for _ in range(robotState.y_position)]
     print(verticalBorder + fgColor['white'])
 
+    return robotState
 
-def reportData(robot):
-    print(f'Robot is at position ({robot.x_position}, {robot.y_position})\
- facing {degreesToCardinalMap(robot.direction)}')
+
+def reportData(robotState):
+    if robotState is None:
+        return None
+    
+    print(f'Robot is at position ({robotState.x_position}, {robotState.y_position})\
+ facing {degreesToCardinalMap(robotState.direction)}')
+    
+    return robotState

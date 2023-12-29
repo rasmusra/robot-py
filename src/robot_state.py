@@ -7,17 +7,33 @@ class RobotState:
         self.direction = int(direction)
 
 
+def place(x_position, y_position, direction, surface):
+    if surface.onBoard(int(x_position), int(y_position)):
+        return RobotState(int(x_position), int(y_position), direction)
+    else:
+        return None
+
+
 def turnLeft(robotState):
+    if robotState is None:
+        return None
+    
     return RobotState(robotState.x_position, robotState.y_position,
                       (robotState.direction - 90) % 360)
 
 
 def turnRight(robotState):
+    if robotState is None:
+        return None
+    
     return RobotState(robotState.x_position, robotState.y_position,
                       (robotState.direction + 90) % 360)
 
 
 def move(robotState, surface):
+    if robotState is None:
+        return None
+    
     x_delta = round(math.sin(math.radians(robotState.direction)))
     y_delta = round(math.cos(math.radians(robotState.direction)))
 
