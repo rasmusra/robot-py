@@ -4,7 +4,7 @@ from src.reporter import reportWithGraphics
 from src.direction_mapper import cardinalToDegreesMap
 
 
-def _create(instruction, surface):
+def _parsePlaceCommand(instruction, surface):
     robotState = None
 
     try:
@@ -24,7 +24,7 @@ def parseCommand(userInput, surface):
     if userInput == 'REPORT':
         return lambda robotState: reportWithGraphics(surface, robotState)
     elif re.match('^PLACE', userInput):
-        newRobotState = _create(userInput, surface)
+        newRobotState = _parsePlaceCommand(userInput, surface)
         return lambda robotState: robotState if newRobotState is None else newRobotState 
     elif userInput == 'LEFT':
         return lambda robotState: turnLeft(robotState)
