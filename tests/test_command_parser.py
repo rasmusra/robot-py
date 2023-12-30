@@ -9,8 +9,7 @@ from src.surface import Surface
                           ('PLACE 1,2,SOUTH', 180),
                           ('PLACE 1,2,WEST', 270)])
 def test_placeFirstRobot(userInput, expectedDirection):
-    command = parseCommand(userInput, Surface(2, 3))
-    robotState = command(None)
+    robotState = parseCommand(userInput, Surface(2, 3), None)
     assert robotState.x_position == 1
     assert robotState.y_position == 2
     assert robotState.direction == expectedDirection
@@ -23,9 +22,8 @@ def test_placeFirstRobot(userInput, expectedDirection):
                           ('REPORT', 1, 2, 90)])
 def test_operateRobot(userInput, x, y, direction):
     surface = Surface(5, 5)
-    robotState = parseCommand('PLACE 1,2,EAST', surface)(None)
-    command = parseCommand(userInput, surface)
-    newRobotState = command(robotState)
+    robotState = parseCommand('PLACE 1,2,EAST', surface, None)
+    newRobotState = parseCommand(userInput, surface, robotState)
     assert newRobotState.x_position == x
     assert newRobotState.y_position == y
     assert newRobotState.direction == direction
@@ -37,6 +35,5 @@ def test_operateRobot(userInput, x, y, direction):
                           ('PLACE 1,2,SOTH'),
                           ('PLAC 1,2,WEST')])
 def test_failCreatingFirstRobot(givenFaultyInstruction):
-    command = parseCommand(givenFaultyInstruction, Surface(2, 3))
-    robotState = command(None)
+    robotState = parseCommand(givenFaultyInstruction, Surface(2, 3), None)
     assert robotState is None
