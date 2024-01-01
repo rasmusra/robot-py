@@ -21,16 +21,19 @@ def _parsePlaceCommand(instruction, surface):
 
 
 def parseCommand(userInput, surface, robotState):
-    if userInput == 'REPORT':
-        return reportWithGraphics(surface, robotState)
-    elif re.match('^PLACE', userInput):
+    result = robotState
+
+    commandMap = {
+        'REPORT': lambda: reportWithGraphics(surface, robotState),
+        'LEFT': lambda: turnLeft(robotState),
+        'RIGHT': lambda: turnRight(robotState),
+        'MOVE': lambda: move(robotState, surface)
+    }
+
+    if re.match('^PLACE', userInput):
         newRobotState = _parsePlaceCommand(userInput, surface)
-        return robotState if newRobotState is None else newRobotState
-    elif userInput == 'LEFT':
-        return turnLeft(robotState)
-    elif userInput == 'RIGHT':
-        return turnRight(robotState)
-    elif userInput == 'MOVE':
-        return move(robotState, surface)
+        result = robotState if newRobotState is None else newRobotState
     else:
-        return robotState
+        result = commandMap.get(userInput, lambda: robotState)()
+
+    return result
