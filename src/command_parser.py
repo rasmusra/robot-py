@@ -4,23 +4,14 @@ from src.reporter import reportWithGraphics
 from src.direction_mapper import cardinalToDegreesMap
 
 
-def _parsePlaceCommand(instruction):
-    if not re.match('^PLACE [0-9]+,[0-9]+,(NORTH|EAST|SOUTH|WEST)$', instruction):
-        return None
-
-    dataPart = instruction.split('PLACE ')[1]
-    x, y, cardinalDirection = dataPart.split(',')
-    direction = cardinalToDegreesMap[cardinalDirection]
-    return int(x), int(y), direction
-
-
 def _processPlaceCommand(userInput, surface, robotState):
-    placeData = _parsePlaceCommand(userInput)
-    if placeData is None:
+    if not re.match('^PLACE [0-9]+,[0-9]+,(NORTH|EAST|SOUTH|WEST)$', userInput):
         return None
 
-    x, y, dir = placeData
-    return place(x, y, dir, surface, robotState)
+    options = userInput.split('PLACE ')[1]
+    x, y, cardinalDirection = options.split(',')
+    direction = cardinalToDegreesMap[cardinalDirection]
+    return place(x, y, direction, surface, robotState)
 
 
 def parseInput(userInput, surface, robotState):
