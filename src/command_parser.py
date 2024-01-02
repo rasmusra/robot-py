@@ -23,7 +23,7 @@ def _processPlaceCommand(userInput, surface, robotState):
     return place(x, y, dir, surface, robotState)
 
 
-def parseCommand(userInput, surface, robotState):
+def parseInput(userInput, surface, robotState):
     command = userInput.split(' ')[0]
 
     commandMap = {

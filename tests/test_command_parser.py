@@ -1,5 +1,5 @@
 import pytest
-from src.command_parser import parseCommand
+from src.command_parser import parseInput
 from src.surface import Surface
 
 
@@ -9,7 +9,7 @@ from src.surface import Surface
                           ('PLACE 1,2,SOUTH', 180),
                           ('PLACE 1,2,WEST', 270)])
 def test_placeFirstRobot(userInput, expectedDirection):
-    robotState = parseCommand(userInput, Surface(2, 3), None)()
+    robotState = parseInput(userInput, Surface(2, 3), None)()
     assert robotState.x_position == 1
     assert robotState.y_position == 2
     assert robotState.direction == expectedDirection
@@ -22,8 +22,8 @@ def test_placeFirstRobot(userInput, expectedDirection):
                           ('REPORT', 1, 2, 90)])
 def test_operateRobot(userInput, x, y, direction):
     surface = Surface(5, 5)
-    robotState = parseCommand('PLACE 1,2,EAST', surface, None)()
-    newRobotState = parseCommand(userInput, surface, robotState)()
+    robotState = parseInput('PLACE 1,2,EAST', surface, None)()
+    newRobotState = parseInput(userInput, surface, robotState)()
     assert newRobotState.x_position == x
     assert newRobotState.y_position == y
     assert newRobotState.direction == direction
@@ -35,5 +35,5 @@ def test_operateRobot(userInput, x, y, direction):
                           ('PLACE 1,2,SOTH'),
                           ('PLAC 1,2,WEST')])
 def test_failCreatingFirstRobot(givenFaultyInstruction):
-    robotState = parseCommand(givenFaultyInstruction, Surface(2, 3), None)()
+    robotState = parseInput(givenFaultyInstruction, Surface(2, 3), None)()
     assert robotState is None
