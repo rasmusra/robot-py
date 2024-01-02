@@ -7,7 +7,7 @@ robotState = None
 while True:
     try:
         userInput = input()
-        robotState = parseCommand(userInput, surface, robotState)
+        robotState = parseCommand(userInput, surface, robotState)()
     except KeyboardInterrupt:
         print('\n')
         exit()

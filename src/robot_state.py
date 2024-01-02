@@ -8,11 +8,11 @@ class RobotState:
         self.direction = int(direction)
 
 
-def place(x_position, y_position, direction, surface):
+def place(x_position, y_position, direction, surface, oldRobotState):
     if surface.onBoard(int(x_position), int(y_position)):
         return RobotState(int(x_position), int(y_position), direction)
     else:
-        return None
+        return oldRobotState
 
 
 def turnLeft(robotState):
