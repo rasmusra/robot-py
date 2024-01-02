@@ -17,8 +17,8 @@ def test_failPace():
 
 def test_createRobot():
     robotState = RobotState(1, 2, 0)
-    assert robotState.x_position == 1
-    assert robotState.y_position == 2
+    assert robotState.x == 1
+    assert robotState.y == 2
     assert robotState.direction == 0
 
 
@@ -50,65 +50,65 @@ def test_move():
     robotState = RobotState(1, 2, 0)
     surface = Surface(5, 5)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 1
-    assert robotState.y_position == 3
+    assert robotState.x == 1
+    assert robotState.y == 3
     robotState = turnRight(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 2
-    assert robotState.y_position == 3
+    assert robotState.x == 2
+    assert robotState.y == 3
     robotState = turnRight(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 2
-    assert robotState.y_position == 2
+    assert robotState.x == 2
+    assert robotState.y == 2
     robotState = turnRight(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 1
-    assert robotState.y_position == 2
+    assert robotState.x == 1
+    assert robotState.y == 2
     robotState = turnRight(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 1
-    assert robotState.y_position == 3
+    assert robotState.x == 1
+    assert robotState.y == 3
     robotState = turnLeft(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 3
+    assert robotState.x == 0
+    assert robotState.y == 3
     robotState = turnLeft(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 2
+    assert robotState.x == 0
+    assert robotState.y == 2
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 1
+    assert robotState.x == 0
+    assert robotState.y == 1
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 0
+    assert robotState.x == 0
+    assert robotState.y == 0
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 0
+    assert robotState.x == 0
+    assert robotState.y == 0
     robotState = turnRight(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 0
+    assert robotState.x == 0
+    assert robotState.y == 0
     robotState = turnLeft(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 0
-    assert robotState.y_position == 0
+    assert robotState.x == 0
+    assert robotState.y == 0
     robotState = turnLeft(robotState)
     robotState = move(robotState, surface)
-    assert robotState.x_position == 1
-    assert robotState.y_position == 0
+    assert robotState.x == 1
+    assert robotState.y == 0
     robotState = move(robotState, surface)
-    assert robotState.x_position == 2
-    assert robotState.y_position == 0
+    assert robotState.x == 2
+    assert robotState.y == 0
     robotState = move(robotState, surface)
-    assert robotState.x_position == 3
-    assert robotState.y_position == 0
+    assert robotState.x == 3
+    assert robotState.y == 0
     robotState = move(robotState, surface)
-    assert robotState.x_position == 4
-    assert robotState.y_position == 0
+    assert robotState.x == 4
+    assert robotState.y == 0
     robotState = move(robotState, surface)
-    assert robotState.x_position == 4
-    assert robotState.y_position == 0
+    assert robotState.x == 4
+    assert robotState.y == 0
     robotState = move(robotState, surface)
-    assert robotState.x_position == 4
-    assert robotState.y_position == 0
+    assert robotState.x == 4
+    assert robotState.y == 0

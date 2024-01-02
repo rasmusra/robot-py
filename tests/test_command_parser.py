@@ -10,8 +10,8 @@ from src.surface import Surface
                           ('PLACE 1,2,WEST', 270)])
 def test_placeFirstRobot(userInput, expectedDirection):
     robotState = parseInput(userInput, Surface(2, 3), None)()
-    assert robotState.x_position == 1
-    assert robotState.y_position == 2
+    assert robotState.x == 1
+    assert robotState.y == 2
     assert robotState.direction == expectedDirection
 
 
@@ -24,8 +24,8 @@ def test_operateRobot(userInput, x, y, direction):
     surface = Surface(5, 5)
     robotState = parseInput('PLACE 1,2,EAST', surface, None)()
     newRobotState = parseInput(userInput, surface, robotState)()
-    assert newRobotState.x_position == x
-    assert newRobotState.y_position == y
+    assert newRobotState.x == x
+    assert newRobotState.y == y
     assert newRobotState.direction == direction
 
 

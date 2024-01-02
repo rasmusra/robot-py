@@ -9,9 +9,9 @@ def _parsePlaceCommand(instruction):
         return None
 
     dataPart = instruction.split('PLACE ')[1]
-    x_position, y_position, cardinalDirection = dataPart.split(',')
+    x, y, cardinalDirection = dataPart.split(',')
     direction = cardinalToDegreesMap[cardinalDirection]
-    return int(x_position), int(y_position), direction
+    return int(x), int(y), direction
 
 
 def _processPlaceCommand(userInput, surface, robotState):
